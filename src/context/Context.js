@@ -1,20 +1,75 @@
 import { createContext, useContext, useReducer } from "react";
-import faker from "faker";
 import { cartReducer, productReducer } from "./Reducers";
 
 const Cart = createContext();
-faker.seed(99);
+
 
 const Context = ({ children }) => {
-  const products = [...Array(20)].map(() => ({
-    id: faker.datatype.uuid(),
-    name: faker.commerce.productName(),
-    price: faker.commerce.price(),
-    image: "logo192.png",
-    inStock: faker.random.arrayElement([0, 3, 5, 6, 7]),
-    fastDelivery: faker.datatype.boolean(),
-    ratings: faker.random.arrayElement([1, 2, 3, 4, 5]),
-  }));
+  let products = [
+		{
+			id: "1",
+			name: "CHICKEN PIZZA",
+			price: 430,
+
+			image: "images/chicken.jpg",
+			inStock: 7,
+			fastDelivery: true,
+			rating: 5,
+		},
+		{
+			id: "2",
+			name: "CHEESE PIZZA",
+			price: 300,
+
+			image: "images/chesse.jpg",
+			inStock: 3,
+			fastDelivery: false,
+			rating: 5,
+		},
+		{
+			id: "3",
+			name: "MUSHROOM PIZZA",
+			price: 400,
+
+			image: "images/Mushrom.jpg",
+			inStock: 0,
+			fastDelivery: true,
+			rating: 3,
+		},
+
+		{
+			id: "4",
+			name: "ITALIAN PIZZA",
+			price: 300,
+
+			image: "images/italian.jpg",
+			inStock: 6,
+			fastDelivery: true,
+			rating: 4,
+		},
+		{
+			id: "5",
+			name: "VEG PIZZA",
+			price: 200,
+
+			image: "images/beg.jpg",
+			inStock: 7,
+			fastDelivery: true,
+			rating: 4,
+		},
+		{
+			id: "6",
+			name: " SPECIAL PIZZA",
+			price: 500,
+
+			image: "images/chicken.jpg",
+			inStock: 6,
+			fastDelivery: false,
+			rating: 3,
+		},
+	];
+
+    
 
   const [state, dispatch] = useReducer(cartReducer, {
     products: products,

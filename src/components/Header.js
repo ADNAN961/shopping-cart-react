@@ -21,10 +21,10 @@ const Header = () => {
   } = CartState();
 
   return (
-    <Navbar bg="dark" variant="dark" style={{ height: 80 }}>
+    <Navbar bg="dark" variant="dark" style={{ height: 80 }} >
       <Container>
         <Navbar.Brand>
-          <Link to="/">Shopping Cart</Link>
+          <Link to="/">PIZZA HUT </Link>
         </Navbar.Brand>
         {useLocation().pathname.split("/")[1] !== "cart" && (
           <Navbar.Text className="search">
